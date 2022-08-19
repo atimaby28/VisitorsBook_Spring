@@ -1,0 +1,13 @@
+@charset "UTF-8";
+
+#whale_logo {
+	width: 150px;
+}
+
+mark.sky {
+    background: linear-gradient(to top, #54fff9 20%, transparent 30%);
+}
+        
+mark.orange {
+    background: linear-gradient(to top, orange 20%, transparent 30%);
+}
