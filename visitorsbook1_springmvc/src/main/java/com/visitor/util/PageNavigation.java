@@ -2,15 +2,15 @@ package com.visitor.util;
 
 public class PageNavigation {
 	
-	private boolean startRange;
-	private boolean endRange;
-	private int totalCount;
-	private int newCount;
-	private int totalPageCount;
-	private int currentPage;
-	private int naviSize;
-	private int countPerPage;
-	private String navigator;
+	private boolean startRange; // 이전 버튼 활성화 여부
+	private boolean endRange;	// 다음 버튼 활성화 여부
+	private int totalCount;		// 전체 글 수 
+	private int newCount;		// 새글 수
+	private int totalPageCount; // 전체 페이지 수
+	private int currentPage;	// 현재 페이지
+	private int naviSize;		// 범위 당 페이 수
+	private int countPerPage;	// 한 페이지당 글 수
+	private String navigator;	// 네비게이션
 
 	public boolean isStartRange() {
 		return startRange;

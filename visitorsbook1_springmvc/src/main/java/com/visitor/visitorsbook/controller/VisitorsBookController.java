@@ -85,10 +85,11 @@ public class VisitorsBookController {
 	}
 
 	@PostMapping("/modify")
-	public String modify(VisitorsBookDto visitorsBookDto, Model model) {
+	public String modify(VisitorsBookDto visitorsBookDto, Model model, RedirectAttributes redirectattributes) {
 		try {
 			visitorsBookService.updateArticle(visitorsBookDto);
 //			model.addAttribute("msg", "글 수정 성공!!!");
+			redirectattributes.addFlashAttribute("msg", "글 수정 성공!!!");
 			return "redirect:/visitorsbook/list?pg=1&key=&word=";
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -101,8 +102,8 @@ public class VisitorsBookController {
 	public String delete(@RequestParam("articleno") int articleNo, Model model, RedirectAttributes redirectAttributes) {
 		try {
 			visitorsBookService.deleteArticle(articleNo);
-			redirectAttributes.addAttribute("msg", "글 삭제 성공!!!");
-//			redirectAttributes.addFlashAttribute("msg", "글 삭제 성공!!!");
+//			redirectAttributes.addAttribute("msg", "글 삭제 성공!!!");
+			redirectAttributes.addFlashAttribute("msg", "글 삭제 성공!!!");
 			return "redirect:/visitorsbook/list?pg=1&key=&word=";
 		} catch (Exception e) {
 			e.printStackTrace();
