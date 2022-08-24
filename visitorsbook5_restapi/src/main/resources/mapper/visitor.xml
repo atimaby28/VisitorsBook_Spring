@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.visitor.visitorsbook.model.mapper.VisitorMapper">
+
+	<select id="idCheck" parameterType="string" resultType="int">
+		select count(visitorid)
+		from visitors
+		where visitorid = #{visitorid}
+	</select>
+
+	<insert id="registerVisitor" parameterType="VisitorDto">
+		insert into visitors (visitorid, visitorname, visitorpwd, email, joindate)
+		values (#{visitorId}, #{visitorName}, #{visitorPwd}, #{email}, now())
+	</insert>
+
+	<select id="login" parameterType="map" resultType="VisitorDto">
+		select visitorname, visitorid, email
+		from visitors
+		where visitorid = #{visitorId} and visitorpwd = #{visitorPwd}
+	</select>
+	
+	<select id="listVisitor" resultType="visitorDto">
+		select visitorid, visitorpwd, visitorname, email, date_format(joindate, '%y.%m.%d') joindate
+		from visitors
+		order by joindate desc;
+	</select>
+	
+	<select id="getVisitor" parameterType="String" resultType="visitordto">
+		select visitorid, visitorpwd, visitorname, email, date_format(joindate, '%y.%m.%d') joindate
+		from visitors
+		where visitorid = #{visitorid}
+	</select>
+	
+	<update id="updateVisitor" parameterType="VisitorDto">
+		update visitors
+		<trim prefix="set" suffixOverrides=",">
+			<if test="visitorPwd != null">visitorpwd = #{visitorPwd},</if>
+			<if test="email != null">email = #{email},</if>
+		</trim>
+		where visitorid = #{visitorId}
+	</update>
+	
+	<delete id="deleteVisitor" parameterType="String">
+		delete from visitors
+		where visitorid = #{visitorid}
+	</delete>
+	
+</mapper>

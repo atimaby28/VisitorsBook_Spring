@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE configuration PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-config.dtd">
+
+<configuration>
+
+	<typeAliases>
+		<typeAlias type="com.visitor.visitorsbook.model.VisitorsBookDto" alias="visitorsbook" />
+		<typeAlias type="com.visitor.visitorsbook.model.FileInfoDto" alias="fileinfo" />
+		<typeAlias type="com.visitor.visitorsbook.model.VisitorDto" alias="visitor" />
+	</typeAliases>
+	
+</configuration>
