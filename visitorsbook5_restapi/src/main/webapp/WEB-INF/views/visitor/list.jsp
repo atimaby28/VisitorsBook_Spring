@@ -28,6 +28,7 @@
 			}	
 		});
 		
+		// 회원 등록
 		$("#registerBtn").click(function() {
 			let registerinfo = JSON.stringify({
 				"visitorName" : $("#visitorname").val(), 

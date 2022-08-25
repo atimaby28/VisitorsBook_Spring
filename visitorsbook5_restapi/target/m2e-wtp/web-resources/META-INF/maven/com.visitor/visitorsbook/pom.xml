@@ -17,6 +17,7 @@
 		<mysql-connector-java-version>8.0.24</mysql-connector-java-version>
 		<commons-dbcp-version>1.4</commons-dbcp-version>
 		<jackson-databind-version>2.12.3</jackson-databind-version>
+		<json-version>20210307</json-version>
 		<servlet-version>4.0.1</servlet-version>
 		<jsp-version>2.3.3</jsp-version>
 		<jstl-version>1.2</jstl-version>
@@ -205,7 +206,7 @@
 		<dependency>
 		    <groupId>org.json</groupId>
 		    <artifactId>json</artifactId>
-		    <version>20210307</version>
+		    <version>${json-version}</version>
 		</dependency>
 		
 		<!-- https://mvnrepository.com/artifact/commons-fileupload/commons-fileupload -->

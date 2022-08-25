@@ -15,6 +15,8 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.visitor.visitorsbook.model.VisitorDto;
@@ -30,7 +32,6 @@ public class AdminController {
 	@Autowired
 	private VisitorService visitorService;
 
-
 /*
 	@RequestMapping(value = "/visitor", method = RequestMethod.GET, headers = { "Content-type=application/json" })
 	public List<VisitorDto> visitorList() throws Exception {
@@ -39,7 +40,7 @@ public class AdminController {
 		return list;
 //		return visitorService.listvisitor();
 	}
-	
+
 	@RequestMapping(value = "/visitor", method = RequestMethod.POST, headers = { "Content-type=application/json" })
 	public List<VisitorDto> visitorRegister(@RequestBody VisitorDto visitorDto) throws Exception {
 		visitorService.registerVisitor(visitorDto);
@@ -68,14 +69,14 @@ public class AdminController {
 	public ResponseEntity<List<VisitorDto>> visitorList() throws Exception {
 		List<VisitorDto> list = visitorService.listVisitor();
 		if(list != null && !list.isEmpty()) {
-//			return new ResponseEntity<List<VisitorDto>>(list, HttpStatus.OK);
+			return new ResponseEntity<List<VisitorDto>>(list, HttpStatus.OK);
 //			return new ResponseEntity<List<VisitorDto>>(HttpStatus.NOT_FOUND);
-			return new ResponseEntity<List<VisitorDto>>(HttpStatus.INTERNAL_SERVER_ERROR);
+//			return new ResponseEntity<List<VisitorDto>>(HttpStatus.INTERNAL_SERVER_ERROR);
 		} else {
 			return new ResponseEntity(HttpStatus.NO_CONTENT);
 		}
 	}
-	
+
 	@PostMapping(value = "/visitor")
 	public ResponseEntity<List<VisitorDto>> visitorRegister(@RequestBody VisitorDto visitorDto) throws Exception {
 		visitorService.registerVisitor(visitorDto);
@@ -107,4 +108,5 @@ public class AdminController {
 		List<VisitorDto> list = visitorService.listVisitor();
 		return new ResponseEntity<List<VisitorDto>>(list, HttpStatus.OK);
 	}
+
 }
