@@ -27,6 +27,9 @@ hs_err_pid*
 .metadata
 /.recommenders/
 
+# settings
+.settings
+
 # idea
 .idea/
 
@@ -41,3 +44,6 @@ Servers/
 
 # Classpath
 .classpath
+
+# STS 
+.springBeans
