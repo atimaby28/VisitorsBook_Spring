@@ -44,14 +44,15 @@ public class VisitorsBookDaoImpl implements VisitorsBookDao {
 			pstmt.executeUpdate();
 			pstmt.close();
 			
+			String lastNo = "select last_insert_id()";
+			pstmt = conn.prepareStatement(lastNo);
+			rs = pstmt.executeQuery();
+			rs.next();
+			int articleno = rs.getInt(1);
+			pstmt.close();
+			
 			List<FileInfoDto> fileInfos = visitorsBookDto.getFileInfos();
 			if(fileInfos != null && !fileInfos.isEmpty()) {
-				String lastNo = "select last_insert_id()";
-				pstmt = conn.prepareStatement(lastNo);
-				rs = pstmt.executeQuery();
-				rs.next();
-				int articleno = rs.getInt(1);
-				pstmt.close();
 				
 				StringBuilder reigsterFile = new StringBuilder();
 				reigsterFile.append("insert into file_info (articleno, savefolder, originfile, savefile) \n");
