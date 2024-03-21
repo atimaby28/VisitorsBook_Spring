@@ -40,7 +40,7 @@ public class VisitorController {
 		visitorService.registerVisitor(visitorDto);
 		return "redirect:/visitor/login";
 	}
-
+	
 	@GetMapping("/login")
 	public String login() {
 		return "visitor/login";
