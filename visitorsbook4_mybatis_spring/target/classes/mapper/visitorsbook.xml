@@ -3,9 +3,9 @@
   PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
-<mapper namespace="com.visitor.visitorsbook.model.dao.VisitorsBookDao">
+<mapper namespace="com.visitor.visitorsbook.model.mapper.VisitorsBookDao">
 
-	<insert id="registerArticle" parameterType="visitorsbook">
+	<insert id="registerArticle" parameterType="VisitorsBookDto">
 		insert into visitorsbook (visitorid, subject, content, regtime)
 		values (#{visitorId}, #{subject}, #{content}, now())
 		<selectKey resultType="int" keyProperty="articleNo" order="AFTER">
@@ -13,7 +13,7 @@
 		</selectKey>
 	</insert>
 	
-	<insert id="registerFile" parameterType="visitorsbook">
+	<insert id="registerFile" parameterType="VisitorsBookDto">
 		insert into file_info (articleno, savefolder, originfile, savefile)
 		values
 		<foreach collection="fileInfos" item="fileinfo" separator=" , ">
@@ -21,7 +21,7 @@
 		</foreach>
 	</insert>
 
-	<resultMap type="visitorsbook" id="articleList">
+	<resultMap type="VisitorsBookDto" id="articleList">
 		<result column="articleno" property="articleNo" />
 		<result column="visitorid" property="visitorId" />
 		<result column="subject" property="subject" />
@@ -53,7 +53,7 @@
 		limit #{start}, #{spp}
 	</select>
 	
-	<select id="fileInfoList" resultType="fileinfo">
+	<select id="fileInfoList" resultType="fileinfoDto">
 		select savefolder, originfile, savefile
 		from file_info
 		where articleno = #{articleno}
@@ -67,13 +67,13 @@
 		</where>
 	</select>
 	
-	<select id="getArticle" parameterType="int" resultType="visitorsbook">
+	<select id="getArticle" parameterType="int" resultType="VisitorsBookDto">
 		select articleno, subject, content
 		from visitorsbook
 		where articleno = #{articleno}
 	</select>
 	
-	<update id="updateArticle" parameterType="visitorsbook">
+	<update id="updateArticle" parameterType="VisitorsBookDto">
 		update visitorsbook
 		set subject = #{subject}, content = #{content}
 		where articleno = #{articleNo}

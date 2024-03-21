@@ -7,7 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.visitor.visitorsbook.model.VisitorDto;
-import com.visitor.visitorsbook.model.dao.VisitorDao;
+import com.visitor.visitorsbook.model.mapper.VisitorDao;
 
 @Service
 public class VisitorServiceImpl implements VisitorService {

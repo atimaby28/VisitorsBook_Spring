@@ -3,14 +3,14 @@
   PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
  
- <mapper namespace="com.visitor.visitorsbook.model.dao.VisitorDao">
-	<insert id="registerVisitor" parameterType="com.visitor.visitorsbook.model.VisitorDto">
+ <mapper namespace="com.visitor.visitorsbook.model.mapper.VisitorDao">
+	<insert id="registerVisitor" parameterType="VisitorDto">
 		insert into visitors (visitorid, visitorname, visitorpwd, email, joindate)
 		values (#{visitorId}, #{visitorName}, #{visitorPwd}, #{email}, now())
 	</insert>
 	
-	<select id="login" parameterType="map" resultType="com.visitor.visitorsbook.model.VisitorDto">
-		select visitorid visitorId, visitorname visitorName
+	<select id="login" parameterType="map" resultType="VisitorDto">
+		select visitorname, visitorid, email
 		from visitors
 		where visitorid = #{visitorId} and visitorpwd = #{visitorPwd}
 	</select>

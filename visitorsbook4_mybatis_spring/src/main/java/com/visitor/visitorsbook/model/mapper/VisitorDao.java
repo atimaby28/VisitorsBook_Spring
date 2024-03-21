@@ -1,4 +1,4 @@
-package com.visitor.visitorsbook.model.dao;
+package com.visitor.visitorsbook.model.mapper;
 
 import java.util.Map;
 

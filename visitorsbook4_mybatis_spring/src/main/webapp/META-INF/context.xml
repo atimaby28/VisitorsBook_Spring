@@ -3,6 +3,6 @@
 	<Resource name="jdbc/visitor" auth="Container" type="javax.sql.DataSource" 
 			maxTotal="100" maxIdle="30" maxWaitMillis="10000" 
 			username="visitor" password="12345678" driverClassName="com.mysql.cj.jdbc.Driver" 	
-			url="jdbc:mysql://localhost:3306/visitorweb?serverTimezone=UTC&amp;useUniCode=yes&amp;characterEncoding=UTF-8"/> 
+			url="jdbc:mysql://localhost:3306/visitorsbook?serverTimezone=UTC&amp;useUniCode=yes&amp;characterEncoding=UTF-8"/> 
     <WatchedResource>WEB-INF/web.xml</WatchedResource>
 </Context>

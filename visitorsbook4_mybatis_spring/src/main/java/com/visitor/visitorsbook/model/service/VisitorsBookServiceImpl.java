@@ -13,7 +13,7 @@ import org.springframework.transaction.annotation.Transactional;
 import com.visitor.util.PageNavigation;
 import com.visitor.visitorsbook.model.FileInfoDto;
 import com.visitor.visitorsbook.model.VisitorsBookDto;
-import com.visitor.visitorsbook.model.dao.VisitorsBookDao;
+import com.visitor.visitorsbook.model.mapper.VisitorsBookDao;
 
 @Service
 public class VisitorsBookServiceImpl implements VisitorsBookService {

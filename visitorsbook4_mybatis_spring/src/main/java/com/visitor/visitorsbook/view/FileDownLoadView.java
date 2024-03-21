@@ -35,7 +35,7 @@ public class FileDownLoadView extends AbstractView {
         response.setContentType(getContentType());
         response.setContentLength((int) file.length());
         
-        String header = request.getHeader("visitor-Agent");
+        String header = request.getHeader("User-Agent");
         boolean isIE = header.indexOf("MSIE") > -1 || header.indexOf("Trident") > -1;
         String fileName = null;
         // IE는 다르게 처리
