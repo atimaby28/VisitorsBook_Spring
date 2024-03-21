@@ -52,8 +52,8 @@ public class VisitorDaoImpl implements VisitorDao {
 		try {
 			conn = dataSource.getConnection();
 			StringBuilder registerVisitor = new StringBuilder();
-			registerVisitor.append("insert into visitors (visitorid, visitorname, visitorpwd, email, joindate) \n");
-			registerVisitor.append("values (?, ?, ?, ?, now())");
+			registerVisitor.append("INSERT INTO visitors (visitorid, visitorname, visitorpwd, email, joindate) \n");
+			registerVisitor.append("VALUES (?, ?, ?, ?, now())");
 			pstmt = conn.prepareStatement(registerVisitor.toString());
 			pstmt.setString(1, visitorDto.getVisitorId());
 			pstmt.setString(2, visitorDto.getVisitorName());
@@ -74,9 +74,9 @@ public class VisitorDaoImpl implements VisitorDao {
 		try {
 			conn = dataSource.getConnection();
 			StringBuilder loginVisitor = new StringBuilder();
-			loginVisitor.append("select visitorid, visitorname \n");
-			loginVisitor.append("from visitors \n");
-			loginVisitor.append("where visitorid = ? and visitorpwd = ? \n");
+			loginVisitor.append("SELECT visitorid, visitorname \n");
+			loginVisitor.append("FROM visitors \n");
+			loginVisitor.append("WHERE visitorid = ? AND visitorpwd = ? \n");
 			pstmt = conn.prepareStatement(loginVisitor.toString());
 			pstmt.setString(1, map.get("visitorId"));
 			pstmt.setString(2, map.get("visitorPwd"));
