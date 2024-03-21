@@ -2,7 +2,7 @@
 <%@ include file="/WEB-INF/views/include/header.jsp" %>
 
     <div align="center">
-      <h3>Spring 방명록!!!(Spring Framework File & interceptor)</h3>
+      <h3>Spring 방명록!!!(Spring MyBatis)</h3>
       <c:if test="${empty visitorinfo}">
 	      <a href="${root}/visitor/register">회원가입</a><br />
 	      <a href="${root}/visitor/login">로그인</a><br />
